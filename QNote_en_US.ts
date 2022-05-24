@@ -37,14 +37,29 @@
         <translation>About</translation>
     </message>
     <message>
-        <location filename="main.qml" line="96"/>
+        <location filename="main.qml" line="94"/>
+        <source>© 2022 Cheng Huang</source>
+        <translation>© 2022 Cheng Huang</translation>
+    </message>
+    <message>
+        <location filename="main.qml" line="101"/>
         <source>Quit</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="main.qml" line="159"/>
+        <location filename="main.qml" line="164"/>
         <source>Save</source>
         <translation>Save</translation>
+    </message>
+    <message>
+        <location filename="main.qml" line="187"/>
+        <source>Saved Success</source>
+        <translation>Saved Success</translation>
+    </message>
+    <message>
+        <location filename="main.qml" line="189"/>
+        <source>Saved Failed</source>
+        <translation>Saved Failed</translation>
     </message>
 </context>
 </TS>

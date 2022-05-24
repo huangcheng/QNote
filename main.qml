@@ -90,6 +90,11 @@ Window {
                 id: menu
                 MenuItem {
                     text: qsTr("About")
+                    onTriggered: {
+                        dialog.text = qsTr("© 2022 Cheng Huang")
+
+                        dialog.visible = true
+                    }
                 }
 
                 MenuItem {
@@ -164,9 +169,11 @@ Window {
             anchors.verticalCenter: parent.verticalCenter
 
             onClicked: {
-                service.content = edit.text
+                if (edit.text.length > 0) {
+                    service.content = edit.text
 
-                service.send()
+                    service.send()
+                }
             }
         }
     }
@@ -174,6 +181,16 @@ Window {
     Service {
         id: service
         url: settings.url
+
+        onSent: (status) => {
+            if (status === Service.Success) {
+                dialog.text = qsTr("Saved Success")
+            } else {
+                dialog.text = qsTr("Saved Failed")
+            }
+
+            dialog.visible = true
+        }
     }
 
     SystemTrayIcon {
@@ -277,5 +294,10 @@ Window {
             settings.setLanguage(languages[setting.language])
             settings.setUrl(url)
         }
+    }
+
+    MessageDialog {
+        id: dialog
+        buttons: MessageDialog.Ok
     }
 }

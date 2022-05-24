@@ -1,6 +1,7 @@
 QT += \
     core \
     quick \
+    widgets \
     network
 
 SOURCES += \

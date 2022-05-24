@@ -3,22 +3,35 @@
 
 #include <QLocale>
 #include <QTranslator>
+#include <QQmlContext>
+
+#include <settings.h>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
+    QCoreApplication::setOrganizationName("Cheng Huang");
+    QCoreApplication::setOrganizationDomain("cheng.im");
+    QCoreApplication::setApplicationName("QNote");
+
     QTranslator translator;
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
-        const QString baseName = "QNote_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + baseName)) {
-            app.installTranslator(&translator);
-            break;
-        }
+
+    Settings settings;
+
+    QString language(settings.language());
+
+    const auto localeName = "QNote_" + language;
+
+    if (translator.load(":/i18n/" + localeName)) {
+        app.installTranslator(&translator);
     }
 
     QQmlApplicationEngine engine;
+
+    engine.addImportPath("qrc:/QNote/imports");
+    engine.rootContext()->setContextProperty("settings", &settings);
+
     const QUrl url(u"qrc:/QNote/main.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

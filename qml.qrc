@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/icon_round.png</file>
+        <file>images/icon.png</file>
+        <file>imports/Qlomo/Constants.qml</file>
+        <file>imports/Qlomo/qmldir</file>
+        <file>imports/Qlomo/Components/Button.qml</file>
+        <file>imports/Qlomo/Components/qmldir</file>
+        <file>Setting.qml</file>
+        <file>images/more.png</file>
+        <file>images/setting.png</file>
+    </qresource>
+</RCC>

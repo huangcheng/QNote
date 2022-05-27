@@ -15,6 +15,7 @@ HEADERS += \
 
 resources.files = \
     main.qml \
+    Info.qml \
     Settings.qml \
     imports/QNote/qmldir \
     imports/QNote/Constants.qml \
@@ -58,4 +59,7 @@ macx {
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Info.qml
 

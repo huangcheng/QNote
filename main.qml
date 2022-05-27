@@ -296,8 +296,8 @@ Window {
         }
     }
 
-    MessageDialog {
+    Info {
         id: dialog
-        buttons: MessageDialog.Ok
+        anchors.centerIn: parent
     }
 }
